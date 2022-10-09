@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.ehcache.org/v3"
+	xmlns:jsr107="http://www.ehcache.org/v3/jsr107"
+	xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.0.xsd">
+
+	<cache alias="listarTodosAvataresPaginadoCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">300</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="listarClassificacaoGeralCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">150</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<!-- <cache alias="buscarVersaoAplicativoAtualCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>br.com.phcruz.model.VersaoAplicativo</value-type>
+		<expiry>
+			<ttl unit="seconds">1500</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>-->
+	<cache alias="buscarEstatisticaPartidaIdCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>br.com.phc.pitaco.utilities.dto.EstatisticaPartidaDTO</value-type>
+		<expiry>
+			<ttl unit="seconds">120</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+	<cache alias="listarEstatisticaPlacarPartidaIdCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">120</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="listarEstatisticaPlacarPartidaIdPaginadoCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">120</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="buscarRankingGlobalUsuarioIdCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>br.com.phc.pitaco.utilities.dto.RankingDTO</value-type>
+		<expiry>
+			<ttl unit="seconds">120</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+	<cache alias="buscarRankingLigaUsuarioIdCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>br.com.phc.pitaco.utilities.dto.RankingDTO</value-type>
+		<expiry>
+			<ttl unit="seconds">120</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+	<cache alias="listarLigasAtivasUsuarioCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">150</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="listarHistoricoPartidasEquipePaginadoCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">120</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="listarRankingPorLigaPaginadoCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">60</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="listarPontuadorRodadaPaginadoCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">300</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="listarPontuadorRodadaGrupoPaginadoCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">300</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+
+	<cache alias="buscarArtilhariaLigaCache">
+		<key-type>java.lang.Object</key-type>
+		<value-type>java.util.List</value-type>
+		<expiry>
+			<ttl unit="seconds">300</ttl>
+		</expiry>
+		<listeners>
+			<listener>
+				<class>br.com.phc.pitaco.api.config.CacheEventLoggerConfig</class>
+				<event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+				<event-ordering-mode>UNORDERED</event-ordering-mode>
+				<events-to-fire-on>CREATED</events-to-fire-on>
+				<events-to-fire-on>EXPIRED</events-to-fire-on>
+			</listener>
+		</listeners>
+		<resources>
+			<heap unit="entries">2</heap>
+			<offheap unit="MB">3</offheap>
+		</resources>
+	</cache>
+</config>

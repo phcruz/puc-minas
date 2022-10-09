@@ -1,0 +1,59 @@
+package br.com.phc.pitaco.utilities.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import br.com.phc.pitaco.utilities.JsonDateDeserializer;
+import br.com.phc.pitaco.utilities.JsonDateSerializer;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "tb_grupo_usuario")
+public class GrupoUsuario implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_grupo_usuario")
+	private Long idGrupoUsuario;
+
+	@ManyToOne
+	@JoinColumn(name = "id_grupo")
+	private Grupo grupo;
+
+	@ManyToOne
+	@JoinColumn(name = "id_liga")
+	private Liga liga;
+
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+
+	@JsonDeserialize(using = JsonDateDeserializer.class)
+	@JsonSerialize(using = JsonDateSerializer.class)
+	@Column(name = "data_cadastro")
+	private Date dataCadastro;
+
+	@JsonDeserialize(using = JsonDateDeserializer.class)
+	@JsonSerialize(using = JsonDateSerializer.class)
+	@Column(name = "data_alteracao")
+	private Date dataAlteracao;
+
+	@Column(name = "ativo")
+	private boolean ativo;
+
+}
