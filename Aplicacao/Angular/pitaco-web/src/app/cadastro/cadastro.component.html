@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-1"></div>
+    <div class="col-md-6 col-sm-10" @Fading (click)="moverPainel('#painelCadastro')" id="painelCadastro">
+      <mat-card class="card-backgroud">
+        <div class="div-center">
+          <img class="card-image" src="assets/img/logo_app_1.png" />
+        </div>
+        <mat-card-title class="card-title">Cadastro</mat-card-title>
+        <mat-card-content>
+          <div class="card-form">
+            <form [formGroup]="cadastroForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Nome completo" formControlName="nome" maxlength="50"/>
+                  <mat-error *ngIf="cadastroForm.controls.nome.invalid"><strong>Informe seu nome</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="email" matInput placeholder="Email" formControlName="email" maxlength="40"/>
+                  <mat-error *ngIf="cadastroForm.controls.email.invalid"><strong>Informe um e-mail válido</strong>
+                  </mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="password" matInput placeholder="Senha" formControlName="senha" maxlength="12"/>
+                  <mat-error *ngIf="cadastroForm.controls.senha.invalid"><strong>A senha deve ter de 6 a 12 caracteres, com letras e números</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="password" matInput placeholder="Confirme a senha" formControlName="senhaConfirmacao" maxlength="12"/>
+                  <mat-error *ngIf="cadastroForm.controls.senha.invalid"><strong>A senha deve ter de 6 a 12 caracteres, com letras e números</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <div class="button">
+                <button type="submit" mat-button class="card-button">CADASTRAR</button>
+              </div>
+            </form>
+
+            <div class="div-center">
+              <a routerLink="/login" class="card-button-link"><button mat-button class="card-button-link">Voltar</button></a>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-3 col-sm-1"></div>
+  </div>
+</div>

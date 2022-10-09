@@ -1,0 +1,185 @@
+<div class="min-height-500-app">
+  <div>
+    <mat-spinner *ngIf="showSpinner" class="spinner-center custom-spinner" diameter="40"></mat-spinner>
+  </div>
+  <div *ngFor="let item of partidasHoje">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8 margin-top-5" (click)="abreTelaPalpitePartida(item)">
+
+        <mat-card class="click">
+          <mat-card-content class="font-size-16">
+            <!-- dados da partida -->
+            <div class="row">
+              <div class="col-5 text-start">
+                <label>{{item.nomeMandante}}</label>
+              </div>
+              <div class="col-2">
+                <img class="img-30 margin-auto-display-block" src="{{item.imgLogoLiga}}" />
+              </div>
+              <div class="col-5 text-end">
+                <label>{{item.nomeVisitante}}</label>
+              </div>
+            </div>
+
+            <!-- dados de palpite e resultado -->
+            <div class="row text-center">
+              <div class="col-3">
+                <img class="img-75 float-left" src="{{item.imgLogoMandante}}" />
+              </div>
+
+              <!--de o seu palpite-->
+              <div class="col-6" *ngIf="getItemViewType(item) === 1">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                    <label class="box background-palpite margin-top">Dê o seu palpite</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- palpite antes do jogo -->
+              <div class="col-6" *ngIf="getItemViewType(item) === 2">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                  </div>
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                  </div>
+                </div>
+                <!-- dados de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <label>{{item.placarPalpite}}</label>
+                  </div>
+                  <div class="col-6">
+                    <label></label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- sem palpite jogo -->
+              <div class="col-6" *ngIf="getItemViewType(item) === 3">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                  </div>
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                  </div>
+                </div>
+                <!-- dados de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <label></label>
+                  </div>
+                  <div class="col-6">
+                    <label>{{item.placarPartida}}</label>
+                  </div>
+                </div>
+                <!--penalidades-->
+                <div class="row margin-bottom-5"
+                  *ngIf="item.placarExtendidoEquipeCasa !== null && item.placarExtendidoEquipeVisitante !== null">
+                  <div class="col-md-12 col-sm-12">
+                    <label>({{item.placarExtendidoEquipeCasa}}) pênaltis ({{item.placarExtendidoEquipeVisitante}})</label>
+                  </div>
+                </div>
+                <!--pontos-->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 div-label-pontos">
+                    <label class="box">{{item.pontos}}</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- completo -->
+              <div class="col-6" *ngIf="getItemViewType(item) === 4">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                  </div>
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                  </div>
+                </div>
+                <!-- dados de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <label>{{item.placarPalpite}}</label>
+                  </div>
+                  <div class="col-6">
+                    <label>{{item.placarPartida}}</label>
+                  </div>
+                </div>
+                <!--penalidades-->
+                <div class="row margin-bottom-5"
+                  *ngIf="item.placarExtendidoEquipeCasa !== null && item.placarExtendidoEquipeVisitante !== null">
+                  <div class="col-md-12 col-sm-12">
+                    <label>({{item.placarExtendidoEquipeCasa}}) pênaltis ({{item.placarExtendidoEquipeVisitante}})</label>
+                  </div>
+                </div>
+                <!--pontos-->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 div-label-pontos">
+                    <label class="box">{{item.pontos}}</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <img class="img-75 float-right" src="{{item.imgLogoVisitante}}" />
+              </div>
+            </div>
+
+            <!-- dados da partida -->
+            <div class="row" *ngIf="item.localJogo !== 'JOGO ADIADO'">
+              <div class="col-md-12 col-sm-12 text-center">
+                <label class="margin-0">{{item.localJogoDataHora}}</label>
+                <label class="margin-0" *ngIf="item.tempoPartida !== null">&nbsp;|</label>
+                <label class="margin-0 cor-green"
+                  *ngIf="item.tempoPartida !== '' && item.tempoPartida !== 'Encerrado'">&nbsp;{{item.tempoPartida}}</label>
+                <label class="margin-0 cor-red"
+                  *ngIf="item.tempoPartida !== '' && item.tempoPartida === 'Encerrado'">&nbsp;{{item.tempoPartida}}</label>
+              </div>
+            </div>
+            <div class="row" *ngIf="item.localJogo === 'JOGO ADIADO'">
+              <div class="col-md-12 col-sm-12 label-jogo-adiado">
+                <label class="margin-0">{{item.localJogo}}</label>
+              </div>
+            </div>
+
+            <!-- dados de gols da partida -->
+            <div class="row" *ngIf="item.golsEquipeCasa !== null || item.golsEquipeVisitante != null">
+              <div class="col-5 text-start">
+                <label class="margin-bottom">{{item.golsEquipeCasa}}</label>
+              </div>
+              <div class="col-2">
+                <img class="img-gols" src="assets/img/logo_app.png" />
+              </div>
+              <div class="col-5 text-end">
+                <label>{{item.golsEquipeVisitante}}</label>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="partidasHoje.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-tabs">
+          <label>Nenhum jogo hoje nas suas ligas. Cadastre-se em mais ligas.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>

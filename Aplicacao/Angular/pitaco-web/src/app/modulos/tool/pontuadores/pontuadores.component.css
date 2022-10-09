@@ -1,0 +1,20 @@
+.box-pontos {
+  background-color: yellow;
+  border-radius: 15px;
+  color: black;
+  padding: 0px 8px 0px 8px;
+  font-size: large;
+  border: 1.5px solid white;
+}
+
+.img-45 {
+  width: 45px; height: 45px;
+}
+
+.img-50 {
+  width: 50px; height: 50px;
+}
+
+.div-label-nome {
+  display: flex; align-items: center;
+}

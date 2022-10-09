@@ -1,0 +1,17 @@
+.dialog-button {
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  border-radius: 0px;
+  display: flex;
+  width: 140px;
+}
+
+.dialog-button-confirmacao {
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}

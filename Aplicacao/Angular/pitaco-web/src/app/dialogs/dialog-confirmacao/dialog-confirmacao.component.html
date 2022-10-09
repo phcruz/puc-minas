@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Pitaco FC</h1>
+<div mat-dialog-content>
+  <p>{{ data.informacao}}</p>
+  <label class="label-dialog">{{ data.descricao }}</label>
+</div>
+<div mat-dialog-actions class="row justify-content-center align-items-center">
+  <button mat-button (click)="onNoClick()" class="dialog-button-confirmacao">Não</button>
+  <button mat-button [mat-dialog-close]="{ data: true }" cdkFocusInitial class="dialog-button-confirmacao">Sim</button>
+</div>

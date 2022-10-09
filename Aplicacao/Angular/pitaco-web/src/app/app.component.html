@@ -1,0 +1,69 @@
+<mat-drawer-container>
+  <mat-drawer #drawer [mode]="'over'" style="width: 70%; max-width: 350px;">
+
+    <div class="header-drawer">
+      <div class="row">
+        <div class="col-7" style="display: flex; align-items: flex-end;">
+          <label class="label-nome-usuario">{{nomeUsuarioLogado}}</label>
+        </div>
+        <div class="col-5" style="padding-left: 5px; padding-right: 0px; text-align: center;">
+          <img style="width: 70%; height: 95%;"
+          alt="Avatar" src="{{avatarUsuarioLogado}}" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label class="label-email-usuario">{{emailUsuarioLogado}}</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-12">
+
+          <mat-list>
+            <mat-list-item id="list-item-0" (click)="navegaTabs(0)" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_campo.png" />
+              <label class="label-menu-drawer">Home</label>
+            </mat-list-item>
+            <mat-list-item id="list-item-1" (click)="navegaTabs(1)" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_minhas_ligas.png" />
+              <label class="label-menu-drawer">Minhas Ligas</label>
+            </mat-list-item>
+            <mat-list-item id="list-item-2" (click)="navegaTabs(2)" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_meus_grupos.png" />
+              <label class="label-menu-drawer">Meus Grupos</label>
+            </mat-list-item>
+            <mat-list-item id="list-item-3" (click)="navegaTabs(3)" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_ranking.png" />
+              <label class="label-menu-drawer">Ranking</label>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item id="list-item-4" (click)="abreTelaPerfilUsuario()" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_editar.png" />
+              <label class="label-menu-drawer">Editar perfil</label>
+            </mat-list-item>
+            <mat-list-item id="list-item-5" (click)="abreDialogSobre()" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_sobre.png" />
+              <label class="label-menu-drawer">Sobre</label>
+            </mat-list-item>
+            <mat-list-item id="list-item-6" (click)="sairApp()" class="curso-ponteiro">
+              <img class="img-menu-drawer" src="assets/img/ic_sair.png" />
+              <label class="label-menu-drawer">Sair</label>
+            </mat-list-item>
+          </mat-list>
+
+        </div>
+      </div>
+    </div>
+
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <router-outlet></router-outlet>
+
+	</mat-drawer-content>
+</mat-drawer-container>
+<ngx-ui-loader></ngx-ui-loader>

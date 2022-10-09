@@ -1,0 +1,91 @@
+<div class="min-height-500">
+  <div *ngFor="let item of equipesClassificacao">
+    <div class="row margin-top-10">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+
+        <mat-card>
+          <mat-card-content class="font-size-16">
+            <div class="row">
+
+              <div class="col-3 padding-rigth-5">
+                <label class="label-posicao">{{item.posicao}}</label>
+                <img class="img-60" src="{{item.urlImagemEquipe}}" />
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12 padding-left-10">
+                    <label>{{item.nomeEquipe}}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 paddingleft-right-10">
+                    <div class="row">
+                      <div class="col-6 col-style">
+                        <img class="img-25" src="assets/img/logo_app.png" />
+                      </div>
+                      <div class="col-6 padding-rigth-5">
+                        <label class="label-acerto">{{item.quantidadeJogos}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3 padding-rigth-5">
+                    <div class="row">
+                      <div class="col-6 col-style">
+                        <label class="box bg-color-green">V</label>
+                      </div>
+                      <div class="col-6 padding-rigth-5">
+                        <label class="label-acerto">{{item.quantidadeVitorias}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3 padding-rigth-5">
+                    <div class="row">
+                      <div class="col-6 col-style">
+                        <label class="box bg-color-yellow">E</label>
+                      </div>
+                      <div class="col-6 padding-rigth-5">
+                        <label class="label-acerto">{{item.quantidadeEmpates}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3 padding-rigth-5">
+                    <div class="row">
+                      <div class="col-6 col-style">
+                        <label class="box bg-color-red">D</label>
+                      </div>
+                      <div class="col-6 padding-rigth-5">
+                        <label class="label-acerto">{{item.quantidadeDerrotas}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-3">
+                <label class="float-right">{{item.quantidadePontos}}</label>
+                <label class="box bg-color-blue float-right margin-right-10">P</label>
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="equipesClassificacao.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-tabs">
+          <label>Ops! Nenhum dado para exibir 😕.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>

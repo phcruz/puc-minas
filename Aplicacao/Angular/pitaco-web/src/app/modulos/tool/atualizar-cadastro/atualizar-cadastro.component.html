@@ -1,0 +1,58 @@
+<div class="min-height-500">
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+      <mat-card>
+        <mat-card-content class="font-size-16">
+          <div class="card-form">
+            <form [formGroup]="atualizarCadastroForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <mat-label>Nome completo</mat-label>
+                  <input type="text" matInput placeholder="Ex. Manoel de Abreu" formControlName="nomeCompleto" maxlength="50" />
+                  <mat-error *ngIf="atualizarCadastroForm.controls.nomeCompleto.invalid"><strong>Informe seu nome</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <mat-label>Time do coração</mat-label>
+                  <input type="text" matInput placeholder="Ex. Juventus" formControlName="timeCoracao" maxlength="30"/>
+                  <mat-error *ngIf="atualizarCadastroForm.controls.timeCoracao.invalid"><strong>Informe seu time do coração</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <mat-label>Telefone</mat-label>
+                  <input matInput placeholder="Somente números" formControlName="telefone" maxlength="15" (keypress)="numberOnly($event)"/>
+                  <mat-error *ngIf="atualizarCadastroForm.controls.telefone.invalid"><strong>Informe seu telefone</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <mat-label>Data de nascimento</mat-label>
+                  <input matInput placeholder="dd/mm/yyyy" formControlName="dataNascimento" [matDatepicker]="picker" maxlength="10"/>
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="material-icons"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+                  <mat-error *ngIf="atualizarCadastroForm.controls.dataNascimento.invalid"><strong>Informe sua data de nascimento</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <div class="button">
+                <button type="submit" mat-raised-button class="button-enviar" [disabled]="!atualizarCadastroForm.valid">
+                  <mat-icon>send</mat-icon>
+                  <label class="label-button">ENVIAR</label>
+                </button>
+              </div>
+            </form>
+            </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+</div>

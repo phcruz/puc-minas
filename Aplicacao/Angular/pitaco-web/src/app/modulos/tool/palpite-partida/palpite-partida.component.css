@@ -1,0 +1,100 @@
+.box {
+  background-color: #FD8D00;
+  border-radius: 20px;
+  border: 1.5px solid white;
+  color: white;
+  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.background-palpite {
+  background-color: orangered;
+}
+
+.img-gols {
+  width: 20px;
+  margin: auto;
+  display: block;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.margin-0 {
+  margin: 0 0 0px;
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
+.div-label-pontos {
+  text-align: center;
+  margin-top: -8px;
+}
+
+.margin-auto-display-block {
+  margin: auto;
+  display: block;
+}
+
+.margin-top {
+  margin-top: 8%;
+}
+
+.mat-form-field {
+  width: 60%;
+}
+
+.button-enviar {
+  background-color: #D6D8D7;
+  width: 100%;
+  border-radius: 23px;
+  border: 2px solid #888888;
+}
+
+.button-enviar .mat-icon {
+  float: left;
+  margin-top: 10px;
+}
+
+.button-enviar .label-button {
+  margin: 3px;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: white !important;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: white !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #FAFAFA !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #FAFAFA !important;
+}
+
+/*select*/
+::ng-deep .mat-select-arrow {
+  color: white;
+}
+
+::ng-deep .mat-select-value {
+  color: white;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: white;
+}

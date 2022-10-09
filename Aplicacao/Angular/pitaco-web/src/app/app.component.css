@@ -1,0 +1,47 @@
+.label-menu-drawer {
+    margin: 0;
+    padding-left: 16px;
+    font-weight: 500;
+}
+
+.curso-ponteiro {
+  cursor: pointer;
+  background-color: #303030;
+}
+
+.claro {
+  background-color:#595959;
+}
+.curso-ponteiro:hover {
+  background-color: #595959;
+}
+
+
+::ng-deep .mat-drawer-content {
+  display: contents!important;
+}
+
+::ng-deep .mat-drawer-container {
+  z-index: 2!important;
+}
+
+::ng-deep .mat-drawer-inner-container {
+  overflow-x: hidden!important;
+}
+
+.header-drawer {
+  padding-left: 15px;
+  /* background-color: #1976d2;
+  color: white; */
+  background-color: #4F4F4F;
+  color: white;
+}
+
+.mat-drawer {
+  background-color: #303030;
+  color: #fff;
+}
+
+.mat-list-base .mat-list-item {
+  color: #fff;
+}

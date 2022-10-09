@@ -1,0 +1,50 @@
+<div class="min-height-500-app">
+  <div *ngFor="let item of ligasUsuario">
+    <div class="row" (click)="abreTela(item.idLiga)" (dblclick)="onDoubleClick(item)">
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+        <div class="col-lg-6 col-md-8 col-sm-8 margin-top-5">
+          <mat-card class="click">
+            <mat-card-content class="font-size-16">
+              <div class="row">
+                <div class="col-2">
+                  <img class="img-60" src="{{item.urlImagem}}">
+                </div>
+                <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
+                      <label>{{item.nomeLiga}}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <label styclassle="label-pais-liga">{{item.paisLiga}}</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <label class="float-right">{{item.temporada}}</label>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      </div>
+    </div>
+    <div *ngIf="ligasUsuario.length === 0">
+      <div class="row">
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+        <div class="col-lg-6 col-md-8 col-sm-8">
+          <div class="div-label-tabs">
+            <label>Selecione mais ligas e participe das competições.</label>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      </div>
+    </div>
+    <div class="fab-container div-fab" @fadeIn>
+      <button routerLink="../../tool/mais-ligas" class="button-float" mat-fab>
+        <mat-icon class="icon">add</mat-icon>
+      </button>
+    </div>
+</div>

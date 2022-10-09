@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-1"></div>
+    <div class="col-md-6 col-sm-10" @Fading (click)="moverPainel('#painelLogin')" id="painelLogin">
+      <mat-card class="card-backgroud">
+        <div class="div-center">
+          <img class="card-image" src="assets/img/logo_app_1.png"/>
+        </div>
+        <mat-card-title class="card-title">Login</mat-card-title>
+        <mat-card-content>
+          <div class="card-form">
+          <form [formGroup]="loginForm" (ngSubmit)="submit()" >
+            <p>
+              <mat-form-field>
+                <input id="email-login" type="text" matInput placeholder="Email" formControlName="email" maxlength="40"/>
+                <mat-error *ngIf="loginForm.controls.email.invalid"><strong>Informe um email válido</strong></mat-error>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field>
+                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Senha" formControlName="senha" maxlength="12"/>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginForm.controls.senha.invalid"><strong>Informe sua senha</strong></mat-error>
+              </mat-form-field>
+            </p>
+
+            <div class="button">
+              <button type="submit" mat-button class="card-button">ENTRAR</button>
+            </div>
+          </form>
+            <br/>
+            <div class="button">
+              <button mat-button class="button-google" (click)="socialLogin('Google')">
+                <mat-icon class="button-icon-google" svgIcon="logo_google"></mat-icon>Login com Google
+              </button>
+            </div>
+            <br/>
+            <div class="button">
+              <button mat-button class="button-facebook" (click)="socialLogin('Facebook')">
+                <img class="button-img-facebook" src="assets/img/logo_facebook.png"/>Login com Facebook
+              </button>
+            </div>
+            <br/>
+
+            <div class="div-center">
+              <a routerLink="/cadastro"><button mat-button class="card-button-link">Cadastre-se e venha se divertir</button></a>
+            </div>
+
+            <div class="div-center">
+              <button mat-button class="card-button-link" (click)="recuperacaoSenhaUsuario()">Recuperar minha senha</button>
+            </div>
+
+        </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-3 col-sm-1"></div>
+  </div>
+</div>

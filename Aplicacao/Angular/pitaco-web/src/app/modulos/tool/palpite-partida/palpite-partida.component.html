@@ -1,0 +1,225 @@
+<div class="min-height-500">
+  <div class="row margin-top-10" *ngIf="!partidaSelecionada.permiteAposta && partidaSelecionada.localJogo !== 'JOGO ADIADO'">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8">
+
+      <mat-card id="card-container-palpite-partida">
+        <mat-card-content class="font-size-16">
+          <!-- dados da partida -->
+          <div class="row">
+            <div class="col-5 text-start">
+              <label>{{partidaSelecionada.nomeMandante}}</label>
+            </div>
+            <div class="col-2">
+              <img class="img-30 margin-auto-display-block" src="{{partidaSelecionada.imgLogoLiga}}"/>
+            </div>
+            <div class="col-5 text-end">
+              <label>{{partidaSelecionada.nomeVisitante}}</label>
+            </div>
+          </div>
+
+          <!-- dados de palpite e resultado -->
+          <div class="row text-center">
+            <div class="col-3">
+              <img class="img-75 float-left click" src="{{partidaSelecionada.imgLogoMandante}}" (click)="abreHistoricoPartida(partidaSelecionada.idLiga, partidaSelecionada.idMandante)"/>
+            </div>
+            <div class="col-6" *ngIf="partidaSelecionada.idPalpite > 0 || (partidaSelecionada.idPalpite === 0 && partidaSelecionada.mostraPontuacao) || !partidaSelecionada.permiteAposta">
+              <!-- icones de palpite e resultado -->
+              <div class="row">
+                <div class="col-6">
+                  <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                </div>
+                <div class="col-6">
+                  <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                </div>
+              </div>
+              <!-- dados de palpite e resultado -->
+              <div class="row">
+                <div class="col-6">
+                  <label *ngIf="partidaSelecionada.idPalpite > 0">{{partidaSelecionada.placarPalpite}}</label>
+                </div>
+                <div class="col-6">
+                  <label *ngIf="partidaSelecionada.mostraPontuacao && partidaSelecionada.localJogo !== 'JOGO ADIADO'">{{partidaSelecionada.placarPartida}}</label>
+                </div>
+              </div>
+              <!--penalidades-->
+              <div class="row margin-bottom-5"
+                *ngIf="partidaSelecionada.placarExtendidoEquipeCasa !== null && partidaSelecionada.placarExtendidoEquipeVisitante !== null">
+                <div class="col-md-12 col-sm-12">
+                  <label>({{partidaSelecionada.placarExtendidoEquipeCasa}}) pênaltis ({{partidaSelecionada.placarExtendidoEquipeVisitante}})</label>
+                </div>
+              </div>
+              <!--pontos-->
+              <div class="row" *ngIf="partidaSelecionada.mostraPontuacao && partidaSelecionada.localJogo !== 'JOGO ADIADO'">
+                <div class="col-md-12 col-sm-12 div-label-pontos">
+                  <label class="box">{{partidaSelecionada.pontos}}</label>
+                </div>
+              </div>
+            </div>
+            <!--de o seu palpite-->
+            <div class="col-6" *ngIf="partidaSelecionada.idPalpite === 0 && !partidaSelecionada.mostraPontuacao && partidaSelecionada.permiteAposta">
+              <!-- icones de palpite e resultado -->
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <label class="box background-palpite margin-top">Dê o seu palpite</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <img class="img-75 float-right click" src="{{partidaSelecionada.imgLogoVisitante}}" (click)="abreHistoricoPartida(partidaSelecionada.idLiga, partidaSelecionada.idVisitante)"/>
+            </div>
+          </div>
+
+          <!-- dados da partida -->
+          <div class="row" *ngIf="partidaSelecionada.localJogo !== 'JOGO ADIADO'">
+            <div class="col-md-12 col-sm-12 text-center">
+              <label class="margin-0">{{partidaSelecionada.localJogoDataHora}}</label>
+              <label class="margin-0" *ngIf="partidaSelecionada.tempoPartida !== null">&nbsp;|</label>
+            </div>
+          </div>
+          <div class="row" *ngIf="partidaSelecionada.localJogo === 'JOGO ADIADO'">
+            <div class="col-md-12 col-sm-12 label-jogo-adiado">
+              <label class="margin-0">{{partidaSelecionada.localJogo}}</label>
+            </div>
+          </div>
+
+          <!-- dados de gols da partida -->
+          <div class="row" *ngIf="partidaSelecionada.golsEquipeCasa !== null || partidaSelecionada.golsEquipeVisitante != null">
+            <div class="col-5 text-start">
+              <label class="margin-bottom">{{partidaSelecionada.golsEquipeCasa}}</label>
+            </div>
+            <div class="col-2">
+              <img class="img-gols" src="assets/img/logo_app.png"/>
+            </div>
+            <div class="col-5 text-end">
+              <label>{{partidaSelecionada.golsEquipeVisitante}}</label>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="margin-top-10" *ngIf="exibeGrafico">
+        <mat-card-content class="font-size-16" style="width: 100%; height: 350px;">
+          <ngx-charts-bar-vertical
+            [scheme]="colorScheme"
+            [results]="estatisticaPlacar"
+            [gradient]="false"
+            [xAxis]="'true'"
+            [yAxis]="'true'"
+            [legend]="'true'"
+            [legendTitle]="'Legenda'"
+            [showXAxisLabel]="'true'"
+            [showYAxisLabel]="'true'"
+            [xAxisLabel]="'Palpites'"
+            [yAxisLabel]="'Placar'"
+            (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="margin-top-10" *ngIf="exibeGrafico">
+        <mat-card-content class="font-size-16" style="width: 100%; height: 300px;">
+          <ngx-charts-pie-chart
+            [scheme]="colorSchemePizza"
+            [results]="estatisticaPartida"
+            [gradient]="false"
+            [legend]="true"
+            [legendTitle]="'Legenda'"
+            [legendPosition]="'right'"
+            [labels]="true"
+            [doughnut]="false"
+            (select)="onSelect($event)"
+            >
+          </ngx-charts-pie-chart>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+
+  <!--permite apostar na partida-->
+  <div class="row margin-top-10" *ngIf="partidaSelecionada.permiteAposta || partidaSelecionada.localJogo === 'JOGO ADIADO'">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8">
+      <form [formGroup]="partidaPalpiteForm" (ngSubmit)="submit()">
+        <mat-card>
+          <mat-card-content class="font-size-16">
+            <div class="row">
+              <div class="col-5 text-start">
+                <label>{{partidaSelecionada.nomeMandante}}</label>
+              </div>
+              <div class="col-2">
+                <img class="img-30 margin-auto-display-block" src="{{partidaSelecionada.imgLogoLiga}}"/>
+              </div>
+              <div class="col-5 text-end">
+                <label>{{partidaSelecionada.nomeVisitante}}</label>
+              </div>
+            </div>
+
+            <div class="row text-center">
+              <div class="col-3">
+                <img class="img-75 float-left click" src="{{partidaSelecionada.imgLogoMandante}}" (click)="abreHistoricoPartida(partidaSelecionada.idLiga, partidaSelecionada.idMandante)"/>
+              </div>
+              <div class="col-6">
+                  <div class="row">
+                    <div class="col-6">
+                      <mat-form-field>
+                        <mat-label>Gol</mat-label>
+                        <mat-select formControlName="palpiteEquipeCasa">
+                          <mat-option *ngFor="let itemPlacar of listaPlacar" [value]="itemPlacar.valor">
+                            {{itemPlacar.valor}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="partidaPalpiteForm.controls.palpiteEquipeCasa.invalid"><strong>Informe o placar</strong></mat-error>
+                      </mat-form-field>
+
+                    </div>
+                    <div class="col-6">
+                      <mat-form-field>
+                        <mat-label>Gol</mat-label>
+                        <mat-select formControlName="palpiteEquipeVisitante">
+                          <mat-option *ngFor="let itemPlacar of listaPlacar" [value]="itemPlacar.valor">
+                            {{itemPlacar.valor}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="partidaPalpiteForm.controls.palpiteEquipeVisitante.invalid"><strong>Informe o placar</strong></mat-error>
+                      </mat-form-field>
+
+                    </div>
+                  </div>
+              </div>
+              <!--permite palpite-->
+              <div class="col-3">
+                <img class="img-75 float-right click" src="{{partidaSelecionada.imgLogoVisitante}}" (click)="abreHistoricoPartida(partidaSelecionada.idLiga, partidaSelecionada.idVisitante)"/>
+              </div>
+            </div>
+            <div class="row" *ngIf="partidaSelecionada.localJogo !== 'JOGO ADIADO'">
+              <div class="col-md-12 col-sm-12 text-center">
+                <label class="margin-0">{{partidaSelecionada.localJogoDataHora}}</label>
+                <label class="margin-0" *ngIf="partidaSelecionada.tempoPartida !== null">&nbsp;|&nbsp;{{partidaSelecionada.tempoPartida}}</label>
+              </div>
+            </div>
+            <div class="row" *ngIf="partidaSelecionada.localJogo === 'JOGO ADIADO'">
+              <div class="col-md-12 col-sm-12 label-jogo-adiado">
+                <label class="margin-0">{{partidaSelecionada.localJogo}}</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="button">
+                  <button type="submit" mat-raised-button class="button-enviar">
+                    <mat-icon>send</mat-icon>
+                    <label class="label-button">ENVIAR</label>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+</div>

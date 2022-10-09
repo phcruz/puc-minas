@@ -1,0 +1,40 @@
+<div class="min-height-500">
+  <div class="row">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8">
+
+      <div class="row text-align-center">
+        <div class="col-6 margin-top-10 padding-left-right-5" *ngFor="let item of listaAvatar">
+          <mat-card class="click" (click)="alterarAvatar(item)">
+            <mat-card-content class="font-size-16">
+              <div class="row">
+                <div class="col-12">
+                  <img src="{{item.urlImagem}}" class="img-110">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label>{{item.descricao}}</label>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+  <div *ngIf="listaAvatar.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-tabs">
+          <label>Nenhum avatar disponível</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>
+

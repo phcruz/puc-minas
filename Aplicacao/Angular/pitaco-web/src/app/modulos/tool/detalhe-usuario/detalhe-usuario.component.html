@@ -1,0 +1,296 @@
+<div class="min-height-500">
+
+  <div class="row" style="margin-top: -1px;">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8 background-header-detalhe-usuario" id="div-usuario-detalhe">
+      <!---->
+      <div class="row div-dados-detalhes">
+        <div class="col-4">
+          <label class="font-size-15 font-white">Pontos</label><br />
+          <label class="size-x circle">{{valueRanking.pontos}}</label>
+        </div>
+        <div class="col-4">
+          <img class="img-110" src="{{valueRanking.urlImagem}}">
+        </div>
+        <div class="col-4">
+          <label class="font-size-15 font-white">Rank</label><br />
+          <label class="size-x circle">{{valueRanking.posicao}}</label>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-12">
+          <label class="font-size-19 font-white">{{valueRanking.nomeUsuario}}</label>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-12">
+          <img class="img-20" src="assets/img/ic_medalha_ouro.png" />
+          <label class="label-dados">{{valueRanking.acertoCincoPontos}}</label>
+
+          <img class="img-20" src="assets/img/ic_medalha_prata.png" />
+          <label class="label-dados">{{valueRanking.acertoTresPontos}}</label>
+
+          <img class="img-20" src="assets/img/ic_medalha_bronze.png" />
+          <label class="label-dados">{{valueRanking.acertoUmPonto}}</label>
+
+          <img class="img-20" src="assets/img/logo_app.png" />
+          <label class="label-dados">{{valueRanking.acertoPontuou}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+
+  <!--card grupos-->
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8">
+      <mat-card class="paddingtop-bottom-0">
+        <mat-card-content class="font-size-16">
+          <Label>Grupos</Label>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+  <!--lista de grupos-->
+  <div *ngFor="let item of gruposUsuario">
+    <div class="row margin-top-10">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+        <mat-card (click)="abreTelaGrupoDetalhe(item)">
+          <mat-card-content class="font-size-16">
+
+            <div class="row">
+              <div class="col-2">
+                <img class="img-60" src="{{item.urlImagem}}">
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <div class="col-12">
+                    <label>{{item.nomeGrupo}}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label class="label-nome-liga">{{item.nomeLiga}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="row">
+                  <div class="col-12">
+                    <label class="float-right">{{item.temporada}}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <img class="img-30 float-right" src="assets/img/{{item.tipoGrupo}}">
+
+                    <img class="img-30 float-right" src="assets/img/{{item.tipoAdmin}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="gruposUsuario.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-detalhes">
+          <label>Nenhum grupo para exibir.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+
+  <!--card palpites-->
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8">
+      <mat-card class="paddingtop-bottom-0">
+        <mat-card-content class="font-size-16">
+          <Label>Palpites</Label>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+  <!--lista de partidas-->
+  <div *ngFor="let item of partidasUsuario">
+    <div class="row margin-top-10">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+        <mat-card (click)="abreTelaPalpitePartida(item)">
+          <mat-card-content class="font-size-16">
+            <!-- dados da partida -->
+            <div class="row">
+              <div class="col-5 text-start">
+                <label>{{item.nomeMandante}}</label>
+              </div>
+              <div class="col-2">
+                <img class="img-30 margin-auto-display-block" src="{{item.imgLogoLiga}}" />
+              </div>
+              <div class="col-5 text-end">
+                <label>{{item.nomeVisitante}}</label>
+              </div>
+            </div>
+
+            <!-- dados de palpite e resultado -->
+            <div class="row text-center">
+              <div class="col-3">
+                <img class="img-75 float-left" src="{{item.imgLogoMandante}}" />
+              </div>
+
+              <!--de o seu palpite-->
+              <div class="col-6" *ngIf="getItemViewType(item) === 1">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                    <label class="box background-palpite margin-top">Dê o seu palpite</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- palpite antes do jogo -->
+              <div class="col-6" *ngIf="getItemViewType(item) === 2">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                  </div>
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                  </div>
+                </div>
+                <!-- dados de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <label>{{item.placarPalpite}}</label>
+                  </div>
+                  <div class="col-6">
+                    <label></label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- sem palpite jogo -->
+              <div class="col-6" *ngIf="getItemViewType(item) === 3">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                  </div>
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                  </div>
+                </div>
+                <!-- dados de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <label></label>
+                  </div>
+                  <div class="col-6">
+                    <label>{{item.placarPartida}}</label>
+                  </div>
+                </div>
+                <!--pontos-->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 div-label-pontos">
+                    <label class="box">{{item.pontos}}</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- completo -->
+              <div class="col-6" *ngIf="getItemViewType(item) === 4">
+                <!-- icones de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_dados.png" />
+                  </div>
+                  <div class="col-6">
+                    <img class="img-25 margin-auto-display-block" src="assets/img/ic_apito.png" />
+                  </div>
+                </div>
+                <!-- dados de palpite e resultado -->
+                <div class="row">
+                  <div class="col-6">
+                    <label>{{item.placarPalpite}}</label>
+                  </div>
+                  <div class="col-6">
+                    <label>{{item.placarPartida}}</label>
+                  </div>
+                </div>
+                <!--pontos-->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 div-label-pontos">
+                    <label class="box">{{item.pontos}}</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <img class="img-75 float-right" src="{{item.imgLogoVisitante}}" />
+              </div>
+            </div>
+
+            <!-- dados da partida -->
+            <div class="row" *ngIf="item.localJogo !== 'JOGO ADIADO'">
+              <div class="col-md-12 col-sm-12 text-center">
+                <label class="margin-0">{{item.localJogoDataHora}}</label>
+                <label class="margin-0" *ngIf="item.tempoPartida !== ''">&nbsp;|</label>
+                <label class="margin-0 cor-green"
+                  *ngIf="item.tempoPartida !== '' && item.tempoPartida !== 'Encerrado'">&nbsp;{{item.tempoPartida}}</label>
+                <label class="margin-0 cor-red"
+                  *ngIf="item.tempoPartida !== '' && item.tempoPartida === 'Encerrado'">&nbsp;{{item.tempoPartida}}</label>
+              </div>
+            </div>
+            <div class="row" *ngIf="item.localJogo === 'JOGO ADIADO'">
+              <div class="col-md-12 col-sm-12 label-jogo-adiado">
+                <label class="margin-0">{{item.localJogo}}</label>
+              </div>
+            </div>
+
+            <!-- dados de gols da partida -->
+            <div class="row" *ngIf="item.golsEquipeCasa !== null || item.golsEquipeVisitante != null">
+              <div class="col-5 text-start">
+                <label class="margin-bottom">{{item.golsEquipeCasa}}</label>
+              </div>
+              <div class="col-2">
+                <img class="img-gols" src="assets/img/logo_app.png" />
+              </div>
+              <div class="col-5 text-end">
+                <label>{{item.golsEquipeVisitante}}</label>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="partidasUsuario.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-detalhes">
+          <label>Cadastre-se em mais ligas e palpite nas partidas.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>

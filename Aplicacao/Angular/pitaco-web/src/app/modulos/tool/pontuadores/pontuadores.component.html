@@ -1,0 +1,58 @@
+<div class="min-height-500">
+  <div *ngFor="let item of listaPontuadores; let i = index">
+    <div class="row margin-top-10">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+
+        <mat-card>
+          <mat-card-content class="font-size-16" style="text-align: center;" *ngIf="i < 3">
+            <div class="row">
+              <div class="col-12">
+                <label>{{item.nome}}</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <img class="img-45" src="assets/img/{{item.medalha}}" />
+              </div>
+              <div class="col-4">
+                <img class="img-75" src="{{item.urlImagem}}" />
+              </div>
+              <div class="col-4">
+                <label class="box-pontos">{{item.pontos}}</label>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-content class="font-size-16" *ngIf="i >= 3">
+            <div class="row">
+              <div class="col-2">
+                <img class="img-50" src="{{item.urlImagem}}" />
+              </div>
+              <div class="col-8 div-label-nome">
+                <label>{{item.nome}}</label>
+              </div>
+              <div class="col-2">
+                <label class="box-pontos float-right">{{item.pontos}}</label>
+              </div>
+            </div>
+          </mat-card-content>
+
+        </mat-card>
+
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="listaPontuadores.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-tabs">
+          <label>Ops! Nenhum dado para exibir 😕.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>

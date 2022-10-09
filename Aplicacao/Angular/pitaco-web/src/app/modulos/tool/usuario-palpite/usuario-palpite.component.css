@@ -1,0 +1,13 @@
+.box-pontos {
+  background-color: yellow;
+  border-radius: 15px;
+  color: black;
+  padding: 0px 8px 0px 8px;
+  float: right;
+  border: 1.5px solid white;
+}
+
+.label-nome-usuario {
+  margin-bottom: 0px;
+  margin-top: 20px;
+}

@@ -1,0 +1,54 @@
+.text-center {
+  text-align: center;
+}
+
+.div-dados-detalhes {
+  text-align: -webkit-center;
+  padding-top: 10px;
+}
+
+.margin-0 {
+  margin: 0px;
+}
+
+.box-pontos {
+  background-color: yellow;
+  border-radius: 15px;
+  color: black;
+  padding: 0px 8px 0px 8px;
+  float: right;
+  border: 1.5px solid white;
+}
+
+.padding-0 {
+  padding-left: 0px;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
+}
+
+.padding-rigth {
+  padding-right: 5px;
+}
+
+.col-style {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.label-posicao {
+  float: left;
+  margin-right: 10px;
+}
+
+.label-acerto {
+  display: initial;
+  vertical-align: middle;
+}
+
+.margin-top {
+  margin-top: 7px;
+}
+

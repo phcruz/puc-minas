@@ -1,0 +1,42 @@
+<div class="min-height-500">
+  <div *ngFor="let item of listaConvites">
+    <div class="row margin-top-10" (click)="abreModalConfirmacao(item)">
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+        <div class="col-lg-6 col-md-8 col-sm-8 click">
+          <mat-card class="margin-3">
+            <mat-card-content class="font-size-16">
+              <div class="row">
+                <div class="col-2">
+                  <img class="img-60" src="{{item.urlImagemAvatarUsuario}}">
+                </div>
+                <div class="col-7">
+                  <div class="row">
+                    <div class="col-12">
+                      <label>{{item.nomeUsuario}}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <label styclassle="label-pais-liga">{{item.dataSolicitacao}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      </div>
+    </div>
+    <div *ngIf="listaConvites.length === 0">
+      <div class="row">
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+        <div class="col-lg-6 col-md-8 col-sm-8">
+          <div class="div-label-tabs">
+            <label>Nenhum convite pendente 😁</label>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      </div>
+    </div>
+</div>

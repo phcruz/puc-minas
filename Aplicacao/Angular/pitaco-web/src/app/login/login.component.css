@@ -1,0 +1,134 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.card-backgroud {
+  background-color: #303030;
+  margin-top: 6%;
+  margin-bottom: 10%;
+}
+
+.card-title {
+  color: white;
+}
+
+.div-center {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.card-image {
+  max-width: 40%;
+  max-height: 40%;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  background-color: #5A5A5C; width: 100%; color: white; font-weight: bold;
+}
+
+.card-button-google {
+  background-color: white; width: 100%; color: #5A5A5C;
+}
+
+.card-button-facebook {
+  background-color: blue; width: 100%; color: white;
+}
+
+.card-form {
+  width: 100%;
+}
+
+.card-button-link {
+  background-color: #303030;
+  color: white;
+  word-break: break-all;
+  padding: 0px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-form-field .mat-input-element {
+  color: gray;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: gray!important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: gray;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: gray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: gray;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: white!important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: white;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: white;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: white;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: red;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: red!important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+  color: red;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: red;
+}
+
+.button-google {
+  background: #FFFFFF; width: 100%;
+  color: black;
+}
+
+.button-icon-google {
+  width: 24px;
+  height: 24px;
+  vertical-align: inherit;
+  float: left;
+  margin-top: -2px;
+}
+
+.button-facebook {
+  background: #1877f2; width: 100%;color: white;
+}
+
+.button-img-facebook {
+  width: 27px;
+  height: 27px;
+  background: white;
+  float: left;
+  border-radius: 30px;
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-bottom: 0px;
+  padding-right: 2px;
+  margin-top: 5px;
+}
+
+.active {
+  cursor: move;
+}

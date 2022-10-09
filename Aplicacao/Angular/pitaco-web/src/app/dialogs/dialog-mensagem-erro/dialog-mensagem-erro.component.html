@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ data.titulo }}</h1>
+<div mat-dialog-content>
+  <label class="label-dialog">{{ data.informacao.message }}</label>
+  <label class="label-dialog">{{ data.informacao.uniqueId }}</label>
+  <label class="label-dialog">{{ data.informacao.time }}</label>
+</div>
+<div mat-dialog-actions class="row justify-content-center align-items-center">
+  <button mat-button (click)="onNoClick()" class="dialog-button-confirmacao">OK</button>
+</div>

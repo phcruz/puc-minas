@@ -1,0 +1,64 @@
+.box {
+  background-color: #FD8D00;
+  border-radius: 20px;
+  border: 1.5px solid white;
+  color: white;
+  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.background-palpite {
+  background-color: orangered;
+}
+
+.img-gols {
+  width: 20px; margin: auto; display: block;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-0 {
+  margin: 0 0 0px;
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
+.div-label-pontos {
+  text-align: center; margin-top: -8px;
+}
+
+.margin-auto-display-block {
+  margin: auto;
+  display: block;
+}
+
+.margin-top {
+  margin-top: 8%;
+}
+
+.spinner-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #FF6600;
+}
+
+::ng-deep .custom-spinner circle{
+  stroke: #0CC20C;
+}

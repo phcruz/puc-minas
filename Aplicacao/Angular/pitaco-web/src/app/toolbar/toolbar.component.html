@@ -1,0 +1,105 @@
+<div class="toolbar app-toolbar" role="banner">
+  <div style="margin-left: 10px;" *ngIf="exibeIconeDrawermenu">
+    <a type="buttom" (click)="toggleRightSidenav()" style="cursor: pointer;">
+      <mat-icon class="icon-drawer">menu</mat-icon>
+    </a>
+  </div>
+  <img class="img-40" alt="Logo Pitaco FC" src="assets/img/logo_app_1.png" />
+  <span style="font-size: larger;">Pitaco FC</span>
+  <div class="spacer"></div>
+  <!-- <div style="padding: 5px; margin-right: 5px;">
+    <label style="margin-bottom: inherit;">Paulo Cruz</label>
+  </div> -->
+  <div style="margin-right: 5px;" *ngIf="exibeIconeClassificacao">
+    <a type="buttom" (click)="abreClassificacao()" style="cursor: pointer;">
+      <img src="assets/img/ic_classificacao.png" style="width: 24px; height: 24px; margin-top: -8px;"/>
+    </a>
+    <a type="buttom" (click)="abreArtilharia()" style="cursor: pointer;">
+      <img src="assets/img/logo_app.png" style="width: 24px; height: 24px; margin-top: -8px;"/>
+    </a>
+  </div>
+  <div style="padding: 5px; padding-right: 0px;" *ngIf="exibeIconePontuadores">
+    <a type="buttom" (click)="abrePontuadores()" style="cursor: pointer;">
+      <img src="assets/img/ic_trofeu_pontuadores.png" style="width: 20px; height: 20px; margin-top: -8px;"/>
+    </a>
+  </div>
+  <div style="padding-left: 5px; padding-right: 5px;" *ngIf="exibeIconeInfoLigas">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon style="margin-top: -3px;">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a *ngFor="let item of ligasAtivas">
+        <button mat-menu-item (click)="mudaRankig(item.idLiga)">
+          <span>{{item.nomeLiga}}</span>
+        </button>
+      </a>
+    </mat-menu>
+  </div>
+  <div style="padding-left: 5px; padding-right: 5px;" *ngIf="exibeIconePerfilUsuario">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon style="margin-top: -3px;">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="atualizarCadastro()">
+        <span>Atualizar cadastro</span>
+      </button>
+      <button mat-menu-item (click)="alterarAvatar()">
+        <span>Alterar avatar</span>
+      </button>
+      <button mat-menu-item (click)="alterarSenha()">
+        <span>Alterar senha</span>
+      </button>
+      <button mat-menu-item (click)="indicarLiga()">
+        <span>Indicar liga</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div style="padding: 5px; padding-right: 0px;" *ngIf="exibeIconeGrupoDetalhe">
+    <a type="buttom" (click)="abrePontuadores()" style="cursor: pointer;">
+      <img src="assets/img/ic_trofeu_pontuadores.png" style="width: 20px; height: 20px; margin-top: -8px;"/>
+    </a>
+  </div>
+  <div style="padding-left: 5px; padding-right: 5px;" *ngIf="exibeIconeGrupoDetalhe">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon style="margin-top: -3px;">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="adicionarAmigos()" *ngIf="itensMenuGrupo.adicionarAmigos">
+        <span>Adicionar amigos</span>
+      </button>
+      <button mat-menu-item (click)="convidarAmigos()" *ngIf="itensMenuGrupo.convidarAmigos">
+        <span>Convidar amigos</span>
+      </button>
+      <button mat-menu-item (click)="editarGrupo()" *ngIf="itensMenuGrupo.editarGrupo">
+        <span>Editar grupo</span>
+      </button>
+      <button mat-menu-item (click)="gerenciarGrupo()" *ngIf="itensMenuGrupo.gerenciarGrupo">
+        <span>Gerenciar grupo</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div style="padding-left: 5px; padding-right: 5px;" *ngIf="exibeIconeMaisGrupos">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon style="margin-top: -3px;">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="criarGrupo()">
+        <span>Criar grupo</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div style="padding-left: 5px; padding-right: 5px;" *ngIf="exibeIconeDetalhesPalpites">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon style="margin-top: -3px;">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="detalhesPalpites()">
+        <span>Detalhes palpites</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>
+

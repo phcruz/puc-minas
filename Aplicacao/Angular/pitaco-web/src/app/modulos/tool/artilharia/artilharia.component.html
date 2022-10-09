@@ -1,0 +1,55 @@
+<div class="min-height-500">
+  <div *ngFor="let item of artilheiros">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8 margin-top-5">
+        <mat-card>
+          <mat-card-content class="font-size-16">
+            <div class="row">
+              <div class="col-3 col-style">
+                <label class="label-posicao">{{ item.ranking }}</label>
+                <img class="img-60" src="{{ item.urlJogador }}" />
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <div class="col-12 padding-left-5">
+                    <label class="label-nome">{{ item.nome }}</label>
+                  </div>
+                </div>
+                <div class="row margin-top">
+                  <div class="col-12 padding-left-5">
+                    <label class="label-descricao">{{ item.posicao }} - {{ item.time }}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="row">
+                  <div class="col-12">
+                    <label class="box-gols">{{ item.gols }}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 alinha-escudo">
+                    <img class="img-30" src="{{ item.urlEscudoTime }}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="artilheiros.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-tabs">
+          <label>Ops! Nenhum dado para exibir 😕.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>

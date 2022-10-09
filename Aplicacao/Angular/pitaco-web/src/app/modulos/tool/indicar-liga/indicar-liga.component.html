@@ -1,0 +1,45 @@
+<div class="min-height-500">
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+      <mat-card class="margin-3">
+        <mat-card-content class="font-size-16">
+          <div class="card-form">
+            <form [formGroup]="indicarLigaForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Nome da liga" formControlName="nomeLiga" />
+                  <mat-error *ngIf="indicarLigaForm.controls.nomeLiga.invalid"><strong>Informe o nome da liga</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="País da liga" formControlName="paisLiga" />
+                  <mat-error *ngIf="indicarLigaForm.controls.paisLiga.invalid"><strong>Informe o país da liga</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Observação" formControlName="observacao" />
+                  <mat-error *ngIf="indicarLigaForm.controls.observacao.invalid"><strong>Informe o país da liga</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <div class="button">
+                <button type="submit" mat-raised-button class="button-enviar" [disabled]="!indicarLigaForm.valid">
+                  <mat-icon>send</mat-icon>
+                  <label class="label-button">ENVIAR</label>
+                </button>
+              </div>
+            </form>
+            </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+</div>

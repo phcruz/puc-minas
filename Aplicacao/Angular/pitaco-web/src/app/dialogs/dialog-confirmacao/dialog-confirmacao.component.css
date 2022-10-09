@@ -1,0 +1,41 @@
+.dialog-button {
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  border-radius: 0px;
+  display: flex;
+  width: 140px;
+}
+
+.dialog-button-confirmacao {
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .dialog-button .mat-button-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.label-dialog {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mat-ink-bar {
+  background-color: #1976d2 !important;
+}

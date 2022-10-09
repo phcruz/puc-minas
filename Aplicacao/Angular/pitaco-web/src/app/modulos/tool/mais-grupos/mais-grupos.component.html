@@ -1,0 +1,62 @@
+<div class="min-height-500">
+  <div *ngFor="let item of gruposImportar">
+    <div class="row margin-top-10" (click)="openDialogConfirmacaoImportarGrupo(item)">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+        <mat-card>
+          <mat-card-content class="font-size-16">
+
+            <div class="row">
+              <div class="col-2">
+                <img class="img-60" src="{{item.urlImagem}}">
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <div class="col-12">
+                    <label>{{item.nomeGrupo}}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label class="label-nome-liga">{{item.nomeLiga}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="row">
+                  <div class="col-12">
+                    <label class="float-right">{{item.temporada}}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <img class="img-30 float-right"
+                      src="assets/img/{{item.tipoGrupo}}">
+
+                    <img class="img-30 float-right"
+                      src="assets/img/{{item.tipoAdmin}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+  <div *ngIf="gruposImportar.length === 0">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="div-label-tabs">
+          <label>Selecione mais grupos e participe das competições.</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+.padding-0 {
+  padding-left: 0px;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
+}
+
+.label-dados {
+  vertical-align: -webkit-baseline-middle;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+}
+
+.font-size-15 {
+  font-size: 15px;
+}
+
+.font-size-19 {
+  font-size: 19px;
+}
+
+.font-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.div-dados-detalhes {
+  text-align: -webkit-center;
+  padding-top: 10px;
+}
+
+.paddingtop-bottom-0 {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.box {
+  background-color: #FD8D00;
+  border-radius: 20px;
+  border: 1.5px solid white;
+  color: white;
+  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.background-palpite {
+  background-color: orangered;
+}
+
+.img-gols {
+  width: 20px; margin: auto; display: block;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-0 {
+  margin: 0 0 0px;
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
+.div-label-pontos {
+  text-align: center; margin-top: -8px;
+}
+
+.margin-auto-display-block {
+  margin: auto;
+  display: block;
+}
+
+.margin-top {
+  margin-top: 8%;
+}

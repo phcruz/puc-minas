@@ -1,0 +1,17 @@
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+@Component({
+  selector: 'app-dialog-mensagem',
+  templateUrl: './dialog-mensagem.component.html',
+  styleUrls: ['./dialog-mensagem.component.css']
+})
+export class DialogMensagemComponent {
+
+  constructor(public dialogRef: MatDialogRef<DialogMensagemComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}

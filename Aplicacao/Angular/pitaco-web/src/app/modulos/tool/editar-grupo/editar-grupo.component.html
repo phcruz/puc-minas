@@ -1,0 +1,56 @@
+<div class="min-height-500">
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+      <mat-card class="margin-3">
+        <mat-card-header>
+          <mat-card-title>Edite grupos e conecte seus amigos para competir</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="font-size-16">
+          <div class="card-form">
+            <form [formGroup]="editarGrupoForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Nome do grupo" formControlName="nomeGrupoEdit" maxlength="30"/>
+                  <mat-error *ngIf="editarGrupoForm.controls.nomeGrupoEdit.invalid"><strong>Informe o nome do grupo</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Descrição do grupo" formControlName="descricaoGrupoEdit" maxlength="90"/>
+                  <mat-error *ngIf="editarGrupoForm.controls.descricaoGrupoEdit.invalid"><strong>Informe a descrição do grupo</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Descrição do prêmio" formControlName="premioGrupoEdit" maxlength="90"/>
+                  <mat-error *ngIf="editarGrupoForm.controls.premioGrupoEdit.invalid"><strong>Informe a descrição do prêmio</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <div class="row">
+                <div class="col-12 col-12-grupo">
+                  <label class="margin-right-10">Grupo</label>
+                  <mat-slide-toggle [checked]="tipoGrupoEdit" (change)="setValue($event)"></mat-slide-toggle>
+                  <label id="label-tipo-grupo-edit" style="color: lawngreen;" class="margin-left-10">Público</label>
+                </div>
+              </div>
+
+              <div class="button">
+                <button type="submit" mat-raised-button class="button-enviar" [disabled]="!editarGrupoForm.valid">
+                  <mat-icon>send</mat-icon>
+                  <label class="label-button">ENVIAR</label>
+                </button>
+              </div>
+            </form>
+            </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+</div>

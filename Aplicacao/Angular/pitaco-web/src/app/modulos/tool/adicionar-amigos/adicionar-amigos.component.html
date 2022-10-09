@@ -1,0 +1,61 @@
+<div class="min-height-500">
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+      <mat-card class="margin-3">
+        <mat-card-header>
+          <mat-card-title>Conecte seus amigos no grupo</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="font-size-16">
+          <div class="card-form">
+            <form [formGroup]="adicionarAmigosForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Nome" formControlName="nomeAmigo" maxlength="30" />
+                  <mat-error *ngIf="adicionarAmigosForm.controls.nomeAmigo.invalid"><strong>Informe o nome para
+                      pesquisar</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <div class="button">
+                <button type="submit" mat-raised-button class="button-enviar" [disabled]="!adicionarAmigosForm.valid">
+                  <mat-icon>send</mat-icon>
+                  <label class="label-button">ENVIAR</label>
+                </button>
+              </div>
+            </form>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+
+    <div *ngFor="let item of listaUsuario">
+      <div class="row margin-top-10">
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+        <div class="col-lg-6 col-md-8 col-sm-8 click" (click)="abreModalConfirmacao(item.idLiga, item.nome)">
+          <mat-card>
+            <mat-card-content class="font-size-16">
+              <div class="row">
+                <div class="col-2" st>
+                  <img class="img-60" src="{{item.urlImagem}}">
+                </div>
+                <div class="col-10">
+                  <div class="row row-center" style="position: absolute; top: 28%; font-size: 18px;">
+                    <div class="col-12">
+                      <label>{{item.nome}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      </div>
+    </div>
+
+</div>

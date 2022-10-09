@@ -1,0 +1,70 @@
+<div class="min-height-500">
+  <div class="row margin-top-10">
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+    <div class="col-lg-6 col-md-8 col-sm-8 click">
+
+      <mat-card class="margin-3">
+        <mat-card-header>
+          <mat-card-title>Crie grupos e conecte seus amigos para competir</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="font-size-16">
+          <div class="card-form">
+            <form [formGroup]="criarGrupoForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Nome do grupo" formControlName="nomeGrupo" maxlength="30"/>
+                  <mat-error *ngIf="criarGrupoForm.controls.nomeGrupo.invalid"><strong>Informe o nome do grupo</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Descrição do grupo" formControlName="descricaoGrupo" maxlength="90"/>
+                  <mat-error *ngIf="criarGrupoForm.controls.descricaoGrupo.invalid"><strong>Informe a descrição do grupo</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Descrição do prêmio" formControlName="premioGrupo" maxlength="90"/>
+                  <mat-error *ngIf="criarGrupoForm.controls.premioGrupo.invalid"><strong>Informe a descrição do prêmio</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field>
+                  <mat-label>Liga</mat-label>
+                  <mat-select formControlName="ligaGrupo">
+                    <mat-option>Selecione</mat-option>
+                    <mat-option *ngFor="let item of ligasAtivas" [value]="item.idLiga">
+                      <img class="img-mat-option" src="{{item.urlImagem}}" />
+                      {{item.nomeLiga}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="criarGrupoForm.controls.ligaGrupo.invalid"><strong>Selecione a Liga do grupo</strong></mat-error>
+                </mat-form-field>
+              </p>
+
+              <div class="row">
+                <div class="col-12 col-12-grupo">
+                  <label class="margin-right-10">Grupo</label>
+                  <mat-slide-toggle [checked]="tipoGrupo" (change)="setValue($event)"></mat-slide-toggle>
+                  <label id="label-tipo-grupo" style="color: lawngreen;" class="margin-left-10">Público</label>
+                </div>
+              </div>
+
+              <div class="button">
+                <button type="submit" mat-raised-button class="button-enviar" [disabled]="!criarGrupoForm.valid">
+                  <mat-icon>send</mat-icon>
+                  <label class="label-button">ENVIAR</label>
+                </button>
+              </div>
+            </form>
+            </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col-lg-3 col-md-2 col-sm-2"></div>
+  </div>
+</div>
