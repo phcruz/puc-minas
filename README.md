@@ -8,6 +8,8 @@ O domínio da aplicação será <a>https://www.pitaco.com.br/</a> (ainda em dese
 
 Apresentação inicial do projeto no link: <a>https://youtu.be/GDod6zBNGkk</a>
 
+Apresentação final do projeto no link: <a>https://www.youtube.com/watch?v=teH5y3-bFkQ</a>
+
 <h3>Descrição do projeto</h3>
 O projeto foi construído utilizando o conceito de arquitetura em Cloud, e com componentes/módulos do framework Spring. O projeto está dividido em 10 aplicações:
 
